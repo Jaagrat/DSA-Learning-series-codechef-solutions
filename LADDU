@@ -1,0 +1,53 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+	// your code goes here
+	int t;
+	cin>>t;
+	while(t--)
+	{
+	    int n;
+	    cin>>n;
+	    string origin;
+	    cin>>origin;
+	    
+	    int laddus=0;
+	    while(n--)
+	    {
+	        string s;
+	        cin>>s;
+	        int p=s.size();
+	        if(s[0]=='C'&&s[p-1]=='N') //for CONTEST_WON
+	        {
+	            int rank;
+	            cin>>rank;
+	            laddus+=300;
+	            if(rank<20) laddus+=(20-rank);
+	        }
+	        if(s[0]=='T')               //for TOP_CONTRIBUTOR
+	        {
+	            laddus+=300;
+	        }
+	        if(s[0]=='B')               //for BUG_FOUND
+	        {
+	            int severity;
+	            cin>>severity;
+	            laddus+=severity;
+	        }
+	        if(s[0]=='C'&&s[p-1]=='D')  //for CONTEST_HOSTED
+	        {
+	            laddus+=50;
+	        }
+	    }
+	    
+	    if(origin[0]=='I')      //for INDIAN
+	        cout<<laddus/200;
+	    else                    //for NON-INDIAN
+	        cout<<laddus/400;
+	        
+	   
+	   cout<<"\n";     
+	}
+	return 0;
+}
