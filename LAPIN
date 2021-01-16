@@ -1,0 +1,43 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+	// your code goes here
+	int t;
+	cin>>t;
+	while(t--){
+	    string s;
+	    cin>>s;
+	    int n=s.size();
+	    
+	    map<int,int> mp1;
+	    for(int i=0;i<n/2;i++)
+	    mp1[int(s[i]-48)]++;
+	    
+	    map<int,int> mp2;
+	    int m=(n%2==0)?(n/2):(n/2+1);
+	    for(int i=m;i<n;i++)
+	    mp2[int(s[i]-48)]++;
+	    
+	    string result="YES";
+	    for(auto i:mp1)
+	    {
+            int num=i.first;
+	        if(mp2.find(num)!=mp2.end())
+	        {
+	            if(mp2.find(num)->second!=i.second){
+	                result="NO";
+	                break;
+	            }
+	        }
+	        else
+	        {
+	            result="NO";
+	            break;
+	        }
+	    }
+	    cout<<result<<"\n";
+	    
+	}
+	return 0;
+}
