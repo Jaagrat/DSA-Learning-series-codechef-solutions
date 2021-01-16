@@ -19,11 +19,13 @@ int main() {
 	            heads=n/2;
 	            tails=n-heads;
 	        }
+		
 	        if(i==2)
 	        {
 	            tails=n/2;
 	            heads=n-tails;
 	        }
+		
 	        if(q==1) cout<<heads;
 	        else cout<<tails;
 	        
